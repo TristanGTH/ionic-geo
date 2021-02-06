@@ -9,6 +9,7 @@
 
       <ion-title class="ion-margin">Code postal ou ville</ion-title>
 
+
       <ion-input id="inputBar"></ion-input>
       <div style="display: flex; justify-content: center; width: 100%">
         <ion-button class="ion-margin-vertical" id="btn" @click="showCity">Rechercher</ion-button>
