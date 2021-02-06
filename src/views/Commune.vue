@@ -6,9 +6,8 @@
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-        <ion-toolbar>
-          <ion-title class="">Code postal ou ville</ion-title>
-        </ion-toolbar>
+
+      <ion-title class="ion-margin">Code postal ou ville</ion-title>
 
       <ion-input id="inputBar"></ion-input>
       <div style="display: flex; justify-content: center; width: 100%">
@@ -24,19 +23,19 @@
         <ion-list>
           <ion-item>
             <ion-label>Département</ion-label>
-            <ion-label class="ion-text-end">ds4</ion-label>
+            <ion-label class="ion-text-end">{{item.codeDepartement}}</ion-label>
           </ion-item>
           <ion-item>
             <ion-label>Région</ion-label>
-            <ion-label class="ion-text-end">ds4</ion-label>
+            <ion-label class="ion-text-end">{{item.codeRegion}}</ion-label>
           </ion-item>
           <ion-item>
             <ion-label>Code Postal</ion-label>
-            <ion-label class="ion-text-end">ds4</ion-label>
+            <ion-label style="color: white" class="ion-text-end">{{item.codesPostaux.join(',')}}</ion-label>
           </ion-item>
           <ion-item>
             <ion-label>Population</ion-label>
-            <ion-label class="ion-text-end">ds4</ion-label>
+            <ion-label class="ion-text-end">{{item.population}}</ion-label>
           </ion-item>
         </ion-list>
       </ion-card>
