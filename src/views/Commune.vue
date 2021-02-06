@@ -58,7 +58,7 @@
   }
 
   #btn{
-    width: 40%;
+    width: 90%;
   }
 
 </style>
