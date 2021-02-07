@@ -18,6 +18,8 @@
         <ion-button class="ion-margin-vertical" id="btn" @click="showCity">Rechercher</ion-button>
       </div>
 
+      <ion-title class="ion-text-center">{{results}}</ion-title>
+
       <ion-card v-for="city in allCity" :key="city">
         <ion-card-header style="display: flex; flex-direction: column; align-items: center">
           <ion-card-subtitle>{{city.code}}</ion-card-subtitle>
@@ -67,7 +69,8 @@ export default  {
   data(){
     return{
       allDepartment: null,
-      allCity: null
+      allCity: null,
+      results: null
     }
   },
   components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonSelect },
@@ -78,6 +81,12 @@ export default  {
       axios.get('https://geo.api.gouv.fr/departements/'+selectValue+'/communes')
               .then((response) =>{
                 console.log(response.data)
+                if (response.data.length > 1){
+                  this.results = response.data.length +' résultats'
+                }
+                else {
+                  this.results = response.data.length+' résultat'
+                }
                 this.allCity = response.data
               })
               .catch(function (error) {

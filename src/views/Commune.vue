@@ -15,6 +15,8 @@
         <ion-button class="ion-margin-vertical" id="btn" @click="showCity">Rechercher</ion-button>
       </div>
 
+      <ion-title class="ion-text-center">{{results}}</ion-title>
+
       <ion-card v-for="item in city" :key="item">
         <ion-card-header style="display: flex; flex-direction: column; align-items: center">
           <ion-card-subtitle>{{item.code}}</ion-card-subtitle>
@@ -74,6 +76,7 @@ export default  {
   data(){
     return{
       city: null,
+      results: null
     }
   },
   methods:{
@@ -91,6 +94,12 @@ export default  {
       axios.get('https://geo.api.gouv.fr/communes?'+queryName+'='+buttonValue)
               .then((response) =>{
                 console.log(response.data)
+                if (response.data.length > 1){
+                  this.results = response.data.length +' résultats'
+                }
+                else {
+                  this.results = response.data.length+' résultat'
+                }
                 this.city = response.data
               })
               .catch(function (error) {
