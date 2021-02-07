@@ -3,7 +3,7 @@ import Tabs from '../views/Tabs.vue'
 
 const routes= [
   {
-    path: '/',
+    path: '',
     redirect: '/tabs/communes'
   },
   {
